@@ -1,5 +1,6 @@
 #include "speechManager.h"
 #include <algorithm>
+#include <deque>
 
 SpeechManager::SpeechManager(){
 	this->InitSpeaker();
@@ -77,6 +78,27 @@ void SpeechManager::SpeechDraw(){
 	cout << "--------------------------------------" << endl;
 	system("pause");
 	cout << endl;
+}
+
+void SpeechManager::SpeechContest(){
+	cout << "----------------------第" << this->m_index << "轮正式开始比赛开始：----------------" << endl;
+	
+	multimap<double, int, greater<double>> groupScore; //临时容器保存key分数 value选手编号
+
+	int num = 0;//记录人员数，6个为一组
+
+	vector <int> v_Src; //比赛的人员容器
+
+	if (this->m_index == 1) v_Src = v1;
+	if (this->m_index == 2) v_Src = v2;
+
+	for(vector<int>::iterator it = v_Src.begin(); it != v_Src.end(); it++){
+		num++;
+		//评委打分
+		deque<double> d;
+		// TODO
+	}
+	
 }
 
 void SpeechManager::StartSpeech(){

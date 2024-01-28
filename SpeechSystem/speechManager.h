@@ -18,10 +18,13 @@ public:
 	void InitSpeaker();
 	//创建12名选手
 	void CreateSpeaker();
-	//演讲比赛开始控制function
-	void StartSpeech();
 	//抽签
 	void SpeechDraw();
+	//开始比赛
+	void SpeechContest();
+
+	//演讲比赛开始控制function
+	void StartSpeech();
 
 	~SpeechManager();
 
