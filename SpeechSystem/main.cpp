@@ -8,27 +8,27 @@ int main()
 	
 	for (map<int,Speaker>::iterator it = sm.m_speaker.begin(); it != sm.m_speaker.end();it++)
 	{
-		cout << "Ñ¡ÊÖ±àºÅ£º" << it->first << "ĞÕÃû£º" << it->second.m_name 
-			<<"·ÖÊı£º" << it->second.m_score[0] << endl;
+		cout << "é€‰æ‰‹ç¼–å·ï¼š" << it->first << "å§“åï¼š" << it->second.m_name 
+			<<"åˆ†æ•°ï¼š" << it->second.m_score[0] << endl;
 	}
 
-	int choice = 0;//´æ´¢ÓÃ»§µÄÑ¡Ïî
+	int choice = 0;//å­˜å‚¨ç”¨æˆ·çš„é€‰é¡¹
 
 	while (true)
 	{
 		sm.ShowMenu();
-		cout << "ÇëÊäÈëÄúµÄÑ¡Ôñ: " << endl;
+		cout << "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©: " << endl;
 		cin >> choice;
 
 		switch (choice)
 		{
-		case 1://¿ªÊ¼±ÈÈü
+		case 1://å¼€å§‹æ¯”èµ›
 			break;
-		case 2://²é¿´Íù½ì¼ÇÂ¼
+		case 2://æŸ¥çœ‹å¾€å±Šè®°å½•
 			break;
-		case 3://Çå¿Õ±ÈÈü¼ÇÂ¼
+		case 3://æ¸…ç©ºæ¯”èµ›è®°å½•
 			break;
-		case 0://ÍË³ö±ÈÈü³ÌĞò
+		case 0://é€€å‡ºæ¯”èµ›ç¨‹åº
 			sm.ExitSystem();
 			break;
 		default:
