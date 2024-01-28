@@ -2,8 +2,7 @@
 #include "speechManager.h"
 using namespace std;
 
-int main()
-{
+int main(){
 	SpeechManager sm;
 	
 	for (map<int,Speaker>::iterator it = sm.m_speaker.begin(); it != sm.m_speaker.end();it++)

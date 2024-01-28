@@ -6,8 +6,7 @@ using namespace std;
 #include "speaker.h"
 
 
-class SpeechManager
-{
+class SpeechManager{
 public:
 	SpeechManager();
 
@@ -19,14 +18,18 @@ public:
 	void InitSpeaker();
 	//创建12名选手
 	void CreateSpeaker();
+	//演讲比赛开始控制function
+	void StartSpeech();
+	//抽签
+	void SpeechDraw();
 
 	~SpeechManager();
 
 	//成员属性
-	vector<int> v1;
-	vector<int> v2;
-	vector<int> victory;
-	map<int, Speaker> m_speaker;
+	vector<int> v1;//比赛选手 12人
+	vector<int> v2;//第一轮晋级的选手 6人
+	vector<int> victory;//胜利前三名的选手 3人
+	map<int, Speaker> m_speaker;//存放编号 以及对应的具体选手
 
-	int m_index;
+	int m_index;//存放比赛的轮数
 };

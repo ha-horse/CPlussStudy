@@ -1,13 +1,12 @@
 #include "speechManager.h"
+#include <algorithm>
 
-SpeechManager::SpeechManager()
-{
+SpeechManager::SpeechManager(){
 	this->InitSpeaker();
 	this->CreateSpeaker();
 }
 
-void SpeechManager::ShowMenu()
-{
+void SpeechManager::ShowMenu(){
 	cout << "******************************************" << endl;
 	cout << "*************欢迎参加演讲比赛*************" << endl;
 	cout << "**************1.开始演讲比赛**************" << endl;
@@ -18,18 +17,15 @@ void SpeechManager::ShowMenu()
 	cout << endl;
 }
 
-void SpeechManager::ExitSystem()
-{
+void SpeechManager::ExitSystem(){
 	cout << "欢迎下次使用" << endl;
 	system("pause");
 	exit(0);
 }
 
-SpeechManager::~SpeechManager()
-{}
+SpeechManager::~SpeechManager(){}
 
-void SpeechManager::InitSpeaker()
-{
+void SpeechManager::InitSpeaker(){
 	this->v1.clear();
 	this->v2.clear();
 	this->victory.clear();
@@ -38,8 +34,7 @@ void SpeechManager::InitSpeaker()
 	this->m_index = 1;
 }
 
-void SpeechManager::CreateSpeaker()
-{
+void SpeechManager::CreateSpeaker(){
 	string name_seed = "ABCDEFGHIJKL";
 	for (int i = 0; i < name_seed.size(); i++)
 	{
@@ -57,4 +52,49 @@ void SpeechManager::CreateSpeaker()
 		this->v1.push_back(i + 10001);
 		this->m_speaker.insert(make_pair(i + 10001, sp));
 	}
+}
+
+void SpeechManager::SpeechDraw(){
+	cout << "第 << " << this->m_index << " >> 轮选手正在抽签" << endl;
+	cout << "-------------------------------------" << endl;
+	cout << "抽签后的演讲顺序如下：" << endl;
+	if (this->m_index == 1){
+		random_shuffle(v1.begin(), v1.end());
+		for ( vector<int>::iterator it = v1.begin(); it != v1.end(); it++)
+		{
+			cout << *it << " ";
+		}
+		cout << endl;
+	}
+	if (this->m_index == 2){
+		random_shuffle(v2.begin(), v2.end());
+		for ( vector<int>::iterator it = v2.begin(); it != v2.end(); it++)
+		{
+			cout << *it << " ";
+		}
+		cout << endl;
+	}
+	cout << "--------------------------------------" << endl;
+	system("pause");
+	cout << endl;
+}
+
+void SpeechManager::StartSpeech(){
+	//第一轮开始比赛
+	this->SpeechDraw();
+	// 抽签
+
+	// 比赛
+
+	// 显示晋级结果
+
+	// 第二轮比赛
+
+	// 抽签
+
+	// 比赛
+
+	// 显示最终结果
+
+	// 保存分数
 }
