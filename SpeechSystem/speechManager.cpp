@@ -37,7 +37,7 @@ void SpeechManager::InitSpeaker()
 
 	this->m_index = 1;
 }
-//����P272
+
 void SpeechManager::CreateSpeaker()
 {
 	string name_seed = "ABCDEFGHIJKL";
