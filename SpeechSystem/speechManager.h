@@ -11,18 +11,18 @@ class SpeechManager
 public:
 	SpeechManager();
 
-	//Õ¹Ê¾²Ëµ¥
+	//å±•ç¤ºèœå•
 	void ShowMenu();
-	//ÍË³öÏµÍ³
+	//é€€å‡ºç³»ç»Ÿ
 	void ExitSystem();
-	//³õÊ¼»¯ÊôĞÔ
+	//åˆå§‹åŒ–å±æ€§
 	void InitSpeaker();
-	//´´½¨12ÃûÑ¡ÊÖ
+	//åˆ›å»º12åé€‰æ‰‹
 	void CreateSpeaker();
 
 	~SpeechManager();
 
-	//³ÉÔ±ÊôĞÔ
+	//æˆå‘˜å±æ€§
 	vector<int> v1;
 	vector<int> v2;
 	vector<int> victory;

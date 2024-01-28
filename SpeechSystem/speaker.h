@@ -5,6 +5,6 @@ using namespace std;
 class Speaker
 {
 public:
-	string m_name;//姓名
-	double m_score[2];//分数 最多有两轮得分
+	string m_name;//濮撳悕
+	double m_score[2];//鍒嗘暟 鏈�澶氭湁涓よ疆寰楀垎
 };

@@ -9,18 +9,18 @@ SpeechManager::SpeechManager()
 void SpeechManager::ShowMenu()
 {
 	cout << "******************************************" << endl;
-	cout << "*************»¶Ó­²Î¼ÓÑÝ½²±ÈÈü*************" << endl;
-	cout << "**************1.¿ªÊ¼ÑÝ½²±ÈÈü**************" << endl;
-	cout << "**************2.²é¿´Íù½ì¼ÇÂ¼**************" << endl;
-	cout << "**************3.Çå¿Õ±ÈÈü¼ÇÂ¼**************" << endl;
-	cout << "**************0.ÍË³ö±ÈÈü³ÌÐò**************" << endl;
+	cout << "*************æ¬¢è¿Žå‚åŠ æ¼”è®²æ¯”èµ›*************" << endl;
+	cout << "**************1.å¼€å§‹æ¼”è®²æ¯”èµ›**************" << endl;
+	cout << "**************2.æŸ¥çœ‹å¾€å±Šè®°å½•**************" << endl;
+	cout << "**************3.æ¸…ç©ºæ¯”èµ›è®°å½•**************" << endl;
+	cout << "**************0.é€€å‡ºæ¯”èµ›ç¨‹åº**************" << endl;
 	cout << "******************************************" << endl;
 	cout << endl;
 }
 
 void SpeechManager::ExitSystem()
 {
-	cout << "»¶Ó­ÏÂ´ÎÊ¹ÓÃ" << endl;
+	cout << "æ¬¢è¿Žä¸‹æ¬¡ä½¿ç”¨" << endl;
 	system("pause");
 	exit(0);
 }
@@ -37,13 +37,13 @@ void SpeechManager::InitSpeaker()
 
 	this->m_index = 1;
 }
-//¿´µ½P272
+//ï¿½ï¿½ï¿½ï¿½P272
 void SpeechManager::CreateSpeaker()
 {
 	string name_seed = "ABCDEFGHIJKL";
 	for (int i = 0; i < name_seed.size(); i++)
 	{
-		string name = "Ñ¡ÊÖ"; 
+		string name = "é€‰æ‰‹"; 
 		name += name_seed[i];
 
 		Speaker sp;
