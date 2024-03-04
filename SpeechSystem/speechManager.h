@@ -22,6 +22,8 @@ public:
 	void SpeechDraw();
 	//开始比赛
 	void SpeechContest();
+	//显示比赛结果
+	void ShowScore();
 
 	//演讲比赛开始控制function
 	void StartSpeech();
