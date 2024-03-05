@@ -163,6 +163,7 @@ void SpeechManager::StartSpeech(){
 	this->ShowScore();
 
 	// 第二轮比赛
+	this->m_index = 2;
 	// 抽签
 	this->SpeechDraw();
 	// 比赛
