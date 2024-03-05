@@ -6,7 +6,7 @@
 
 SpeechManager::SpeechManager(){
 	this->InitSpeaker();
-	this->CreateSpeaker();
+	this->CreateSpeaker();//创建12位比赛选手
 }
 
 void SpeechManager::ShowMenu(){
@@ -84,7 +84,8 @@ void SpeechManager::SpeechDraw(){
 
 void SpeechManager::SpeechContest(){
 	cout << "----------------------第" << this->m_index << "轮正式开始比赛开始：----------------" << endl;
-	
+	//multimap 是一个关联容器，它可以存储键值对，其中每个键可以与多个值关联。
+	//但主要区别在于 map 中一个键只能关联一个值，不同的选手可能出现同分的情况，故这里用的multimap
 	multimap<double, int, greater<double>> groupScore; //临时容器保存key分数 value选手编号
 	int num = 0;//记录人员数，6个为一组
 
@@ -118,7 +119,6 @@ void SpeechManager::SpeechContest(){
 
 		//每个人的平均分
 		this->m_speaker[*it].m_score[this->m_index - 1] = avg;
-		
 
 		//6个人一组，用临时容器保存
 		groupScore.insert(make_pair(avg, *it));
@@ -147,25 +147,27 @@ void SpeechManager::SpeechContest(){
 
 void SpeechManager::ShowScore(){
 	cout << "--------------------第" << this->m_index << "轮晋级选手信息如下：--------------" << endl;
-	//TODO
+	for(vector<int>::iterator it = v2.begin(); it != v2.end(); it++){
+		cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
+		<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
+	}
 }
 
 void SpeechManager::StartSpeech(){
 	//第一轮开始比赛
-	
 	// 抽签
 	this->SpeechDraw();
 	// 比赛
 	this->SpeechContest();
 	// 显示晋级结果
+	this->ShowScore();
 
 	// 第二轮比赛
-
 	// 抽签
 	this->SpeechDraw();
 	// 比赛
 	this->SpeechContest();
 	// 显示最终结果
-
+	this->ShowScore();
 	// 保存分数
 }
