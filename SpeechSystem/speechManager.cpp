@@ -146,22 +146,20 @@ void SpeechManager::SpeechContest(){
 }
 
 void SpeechManager::ShowScore(){
+	vector<it> vec;
 	if(this->m_index == 1) {
+		vec = v2;
 		cout << "--------------------第" << this->m_index << "轮晋级选手信息如下：--------------" << endl;
-		for(vector<int>::iterator it = v2.begin(); it != v2.end(); it++){
-			cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
-			<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
-		}
-		cout << endl;
 	}
 	if (this->m_index == 2) {
+		vec = victory;
 		cout << "--------------------最终获奖选手信息如下：--------------" << endl;
-		for(vector<int>::iterator it = victory.begin(); it != victory.end(); it++){
-			cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
-			<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
-		}
-		cout << endl;
 	}
+	for(vector<int>::iterator it = vec.begin(); it != vec.end(); it++){
+		cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
+		<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
+	}
+	cout << endl;
 }
 
 void SpeechManager::StartSpeech(){
