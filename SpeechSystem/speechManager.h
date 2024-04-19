@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-using namespace std;
 #include <vector>
 #include <map>
 #include "speaker.h"
 
+using namespace std;
 
 class SpeechManager{
 public:
@@ -24,6 +24,8 @@ public:
 	void SpeechContest();
 	//显示比赛结果
 	void ShowScore();
+	//保存分数
+	void SaveScore();
 
 	//演讲比赛开始控制function
 	void StartSpeech();

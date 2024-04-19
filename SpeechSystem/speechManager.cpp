@@ -146,7 +146,7 @@ void SpeechManager::SpeechContest(){
 }
 
 void SpeechManager::ShowScore(){
-	vector<it> vec;
+	vector<int> vec;
 	if(this->m_index == 1) {
 		vec = v2;
 		cout << "--------------------第" << this->m_index << "轮晋级选手信息如下：--------------" << endl;
@@ -160,6 +160,10 @@ void SpeechManager::ShowScore(){
 		<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
 	}
 	cout << endl;
+}
+
+void SpeechManager::SaveScore() {
+	// TODO
 }
 
 void SpeechManager::StartSpeech(){
@@ -180,4 +184,5 @@ void SpeechManager::StartSpeech(){
 	// 显示最终结果
 	this->ShowScore();
 	// 保存分数
+
 }
