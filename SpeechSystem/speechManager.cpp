@@ -3,6 +3,7 @@
 #include <deque>
 #include <functional>
 #include <numeric>
+#include <fstream>
 
 SpeechManager::SpeechManager(){
 	this->InitSpeaker();
@@ -22,7 +23,6 @@ void SpeechManager::ShowMenu(){
 
 void SpeechManager::ExitSystem(){
 	cout << "欢迎下次使用" << endl;
-	system("pause");
 	exit(0);
 }
 
@@ -78,7 +78,6 @@ void SpeechManager::SpeechDraw(){
 		cout << endl;
 	}
 	cout << "--------------------------------------" << endl;
-	system("pause");
 	cout << endl;
 }
 
@@ -163,7 +162,20 @@ void SpeechManager::ShowScore(){
 }
 
 void SpeechManager::SaveScore() {
-	// TODO
+	
+	ofstream ofs;
+	ofs.open("speak.csv", ios::out);
+
+	ofs << "选后编号" << "," << "最终分数" << endl; // 列名
+	for (auto vict : victory)
+	{
+		ofs << vict << "," << m_speaker[vict].m_score[1] << endl;
+	}
+	ofs << endl;
+
+	ofs.close();
+	cout << "记录已经保存" << endl;
+	
 }
 
 void SpeechManager::StartSpeech(){
@@ -183,6 +195,8 @@ void SpeechManager::StartSpeech(){
 	this->SpeechContest();
 	// 显示最终结果
 	this->ShowScore();
-	// 保存分数
+	// 保存分数到csv文件中
+	this->SaveScore();
 
+	cout << "本届比赛完毕" << endl;
 }
