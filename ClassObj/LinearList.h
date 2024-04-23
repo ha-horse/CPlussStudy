@@ -1,3 +1,6 @@
+
+/*继承*/
+
 class LinearList{
 private:
     /* data */

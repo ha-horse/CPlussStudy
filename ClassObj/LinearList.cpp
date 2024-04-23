@@ -12,6 +12,16 @@ LinearList::~LinearList(){
     delete []buffer;
 }
 
+bool LinearList::insert(int x, int i) {}
+
+bool LinearList::remove(int &x, int i) {}
+
+int LinearList::element(int i) const {}
+
+int LinearList::search(int x) const {}
+
+int LinearList::length() const {}
+
 // -------------------------------------------------------------------------
 // queue
 // ------------------------------------------------------------------------- 
