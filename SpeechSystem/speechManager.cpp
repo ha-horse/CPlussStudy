@@ -11,18 +11,18 @@ SpeechManager::SpeechManager(){
 }
 
 void SpeechManager::ShowMenu(){
-	cout << "******************************************" << endl;
-	cout << "*************欢迎参加演讲比赛*************" << endl;
-	cout << "**************1.开始演讲比赛**************" << endl;
-	cout << "**************2.查看往届记录**************" << endl;
-	cout << "**************3.清空比赛记录**************" << endl;
-	cout << "**************0.退出比赛程序**************" << endl;
-	cout << "******************************************" << endl;
-	cout << endl;
+	std::cout << "******************************************" << std::endl;
+	std::cout << "*************欢迎参加演讲比赛*************" << std::endl;
+	std::cout << "**************1.开始演讲比赛**************" << std::endl;
+	std::cout << "**************2.查看往届记录**************" << std::endl;
+	std::cout << "**************3.清空比赛记录**************" << std::endl;
+	std::cout << "**************0.退出比赛程序**************" << std::endl;
+	std::cout << "******************************************" << std::endl;
+	std::cout << std::endl;
 }
 
 void SpeechManager::ExitSystem(){
-	cout << "欢迎下次使用" << endl;
+	std::cout << "欢迎下次使用" << std::endl;
 	exit(0);
 }
 
@@ -34,7 +34,7 @@ void SpeechManager::InitSpeaker(){
 	this->victory.clear();
 	this->m_speaker.clear();
 
-	this->m_index = 1;
+	this->m_index = 0;
 }
 
 void SpeechManager::CreateSpeaker(){
@@ -58,31 +58,31 @@ void SpeechManager::CreateSpeaker(){
 }
 
 void SpeechManager::SpeechDraw(){
-	cout << "第 " << this->m_index << " 轮选手正在抽签" << endl;
-	cout << "-------------------------------------" << endl;
-	cout << "抽签后的演讲顺序如下：" << endl;
+	std::cout << "第 " << this->m_index << " 轮选手正在抽签" << std::endl;
+	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "抽签后的演讲顺序如下：" << std::endl;
 	if (this->m_index == 1){
 		random_shuffle(v1.begin(), v1.end());
 		for ( vector<int>::iterator it = v1.begin(); it != v1.end(); it++)
 		{
-			cout << *it << " ";
+			std::cout << *it << " ";
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 	if (this->m_index == 2){
 		random_shuffle(v2.begin(), v2.end());
 		for ( vector<int>::iterator it = v2.begin(); it != v2.end(); it++)
 		{
-			cout << *it << " ";
+			std::cout << *it << " ";
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
-	cout << "--------------------------------------" << endl;
-	cout << endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << std::endl;
 }
 
 void SpeechManager::SpeechContest(){
-	cout << "----------------------第" << this->m_index << "轮正式开始比赛开始：----------------" << endl;
+	std::cout << "----------------------第" << this->m_index << "轮正式开始比赛开始：----------------" << std::endl;
 	//multimap 是一个关联容器，它可以存储键值对，其中每个键可以与多个值关联。
 	//但主要区别在于 map 中一个键只能关联一个值，不同的选手可能出现同分的情况，故这里用的multimap
 	multimap<double, int, greater<double>> groupScore; //临时容器保存key分数 value选手编号
@@ -100,10 +100,10 @@ void SpeechManager::SpeechContest(){
 		for (int i = 0; i < 10; i++)
 		{
 			double score = (rand() % 401 + 600) / 10.0f;
-			// cout << score << " ";
+			// std::cout << score << " ";
 			d.push_back(score);
 		}
-		// cout << endl;
+		// std::cout << std::endl;
 
 		//排序
 		sort(d.begin(), d.end(), greater<double>());
@@ -123,11 +123,11 @@ void SpeechManager::SpeechContest(){
 		groupScore.insert(make_pair(avg, *it));
 		if (num % 6 == 0)
 		{
-			cout << "第" << num / 6 << "小组比赛名次：" << endl;
+			std::cout << "第" << num / 6 << "小组比赛名次：" << std::endl;
 			for (multimap<double, int, greater<double>>::iterator it = groupScore.begin(); it != groupScore.end(); it++)
 			{
-				cout << "编号：" << it->second << " 姓名：" << this->m_speaker[it->second].m_name 
-				<< "成绩：" << this->m_speaker[it->second].m_score[this->m_index - 1] << endl;
+				std::cout << "编号：" << it->second << " 姓名：" << this->m_speaker[it->second].m_name 
+				<< "成绩：" << this->m_speaker[it->second].m_score[this->m_index - 1] << std::endl;
 			}
 			
 			int count = 0;
@@ -138,27 +138,27 @@ void SpeechManager::SpeechContest(){
 				
 			}
 			groupScore.clear();
-			cout << endl;
+			std::cout << std::endl;
 		}
 	}
-	cout << "--------------------第" << this->m_index << "轮比赛完毕！--------------" << endl;
+	std::cout << "--------------------第" << this->m_index << "轮比赛完毕！--------------" << std::endl;
 }
 
 void SpeechManager::ShowScore(){
 	vector<int> vec;
 	if(this->m_index == 1) {
 		vec = v2;
-		cout << "--------------------第" << this->m_index << "轮晋级选手信息如下：--------------" << endl;
+		std::cout << "--------------------第" << this->m_index << "轮晋级选手信息如下：--------------" << std::endl;
 	}
 	if (this->m_index == 2) {
 		vec = victory;
-		cout << "--------------------最终获奖选手信息如下：--------------" << endl;
+		std::cout << "--------------------最终获奖选手信息如下：--------------" << std::endl;
 	}
 	for(vector<int>::iterator it = vec.begin(); it != vec.end(); it++){
-		cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
-		<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << endl;
+		std::cout << "编号：" << *it << "选手：" << this->m_speaker[*it].m_name 
+		<< "分数：" << this->m_speaker[*it].m_score[this->m_index - 1] << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 void SpeechManager::SaveScore() {
@@ -166,24 +166,26 @@ void SpeechManager::SaveScore() {
 	ofstream ofs;
 	ofs.open("speak.csv", ios::out);
 
-	ofs << "选后编号" << "," << "最终分数" << endl; // 列名
+	ofs << "选后编号" << "," << "最终分数" << std::endl; // 列名
 	for (auto vict : victory)
 	{
-		ofs << vict << "," << m_speaker[vict].m_score[1] << endl;
+		ofs << vict << "," << m_speaker[vict].m_score[1] << std::endl;
 	}
-	ofs << endl;
+	ofs << std::endl;
 
 	ofs.close();
-	cout << "记录已经保存" << endl;
+	std::cout << "记录已经保存" << std::endl;
 	
 }
 
 void SpeechManager::StartSpeech(){
 	//第一轮开始比赛
+	this->m_index = 1;
 	// 抽签
 	this->SpeechDraw();
 	// 比赛
 	this->SpeechContest();
+	std::cout << "第一轮比赛结束，晋级结果如下：\n";
 	// 显示晋级结果
 	this->ShowScore();
 
@@ -193,10 +195,11 @@ void SpeechManager::StartSpeech(){
 	this->SpeechDraw();
 	// 比赛
 	this->SpeechContest();
+	std::cout << "第二轮比赛结束，晋级结果如下：\n";
 	// 显示最终结果
 	this->ShowScore();
 	// 保存分数到csv文件中
 	this->SaveScore();
 
-	cout << "本届比赛完毕" << endl;
+	std::cout << "本届比赛完毕" << std::endl;
 }
