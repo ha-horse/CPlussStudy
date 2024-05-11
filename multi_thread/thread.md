@@ -30,3 +30,26 @@ atomic 基本类型的原子操作
 （3）信号量
 
 （4）读写锁shared_lock。
+
+## 创建线程
+
+* 形式1：
+```C++
+std::thread myThread(thread_fun);
+myThread.join();
+```
+* 形式2：
+```C++
+std::thread myThread(thread_fun(100));
+myThread.join();
+```
+* 形式3：
+```C++
+std::thread (thread_fun,1).detach();
+```
+
+---
+
+当线程启动后，一定要在和线程相关联的thread销毁前，确定以何种方式等待线程执行结束。比如上例中的join。
+* detach方式，启动的线程自主在后台运行，当前的代码继续往下执行，不等待新线程结束。
+* join方式，等待启动的线程完成，才会继续往下执行。
